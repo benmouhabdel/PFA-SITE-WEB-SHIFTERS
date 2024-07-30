@@ -20,7 +20,9 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->string('role')->default('user'); // Ajout de la colonne 'role'
-            $table->string('registration_key')->nullable(); 
+            $table->string('registration_key')->nullable();
+            $table->string('phone')->nullable();
+
         });
 
     }

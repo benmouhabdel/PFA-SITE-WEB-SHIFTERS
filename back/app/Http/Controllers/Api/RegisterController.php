@@ -9,7 +9,7 @@ use App\Models\User;
 
 class RegisterController extends Controller
 {
-    protected $defaultRegistrationKey = 't';
+    protected $defaultRegistrationKey = 'Shifters@Heec143';
 
     public function register(RegisterRequest $request)
     {
@@ -19,6 +19,7 @@ class RegisterController extends Controller
             'password' => bcrypt($request->password),
             'role' => 'user',
             'registration_key' => $request->registration_key ?? $this->defaultRegistrationKey,
+            'phone' => $request->phone, // Ajout du champ 'phone'
         ]);
 
         $token = $user->createToken('auth_token')->plainTextToken;
@@ -35,7 +36,8 @@ class RegisterController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'role' => 'admin'
+            'role' => 'admin',
+            'phone' => $request->phone, // Ajout du champ 'phone'
         ]);
 
         $token = $admin->createToken('auth_token')->plainTextToken;

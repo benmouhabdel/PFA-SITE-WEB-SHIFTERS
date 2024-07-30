@@ -21,7 +21,9 @@ class UserFactory extends Factory
             'password' => bcrypt('password'), // or use Hash::make('password')
             'remember_token' => Str::random(10),
             'role' => $this->faker->randomElement(['user', 'admin']),
-            'registration_key' => $this->faker->randomElement(['Shifters@Heec143', null]),        ];
+            'registration_key' => $this->faker->randomElement(['Shifters@Heec143', null]),
+            'phone' => $this->faker->phoneNumber(),
+                ];
     }
 
     /**

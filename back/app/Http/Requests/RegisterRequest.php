@@ -19,6 +19,7 @@ class RegisterRequest extends FormRequest
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:8',
+            'phone' => 'nullable|string|max:12',
         ];
 
         // Vérifiez si la route actuelle est pour l'enregistrement d'un admin

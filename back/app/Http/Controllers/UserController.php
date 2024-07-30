@@ -12,6 +12,7 @@ class UserController extends Controller
         return response()->json(['message' => 'Welcome to your profile!']);
     }
 
+
     public function listHouses()
     {
         $houses = [
