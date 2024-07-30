@@ -1,9 +1,14 @@
 export interface User {
-    id: number;
-    name: string;
-    email: string;
-    role: 'user' | 'admin';
-  }
+  id: number;
+  name: string;
+  email: string;
+  password: string;
+  role: string;
+  phone?: string; 
+  registration_key?: string;
+   // Ajoutez cette ligne
+}
+
   
   export interface LoginData {
     email: string;

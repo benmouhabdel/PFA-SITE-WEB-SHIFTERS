@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Box, Typography, Paper, Grid, styled } from '@mui/material';
-import api  from '../services/api'; // Import the API client
+import api from '../services/api'; // Import the API client
 import { UserList } from '../components/Admin/UserList';
 import UserCreateForm from '../components/Admin/UserForm';
 import UserEditForm from '../components/Admin/UserEdit';
@@ -25,7 +25,6 @@ const Title = styled(Typography)({
   textAlign: 'center',
   color: '#fff',
 });
-
 
 const AdminDashboardPage: React.FC = () => {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);

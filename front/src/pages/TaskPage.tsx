@@ -6,7 +6,7 @@ import TaskForm from '../components/Admin/TaskForm';
 import { Container, Box, Typography, Paper, styled } from '@mui/material';
 
 const Background = styled(Box)({
-  background: 'linear-gradient(135deg, #a2c2e0 30%, #f3e5f5 90%)',
+  background: 'linear-gradient(135deg, #1d3557 70%, #f4a261 90%)',
   minHeight: '100vh',
   padding: '20px',
 });

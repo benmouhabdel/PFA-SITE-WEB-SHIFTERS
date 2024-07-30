@@ -1,39 +1,46 @@
-/* TaskForm.css */
 .task-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 300px;
-    margin: 0 auto;
-  }
-  
-  .task-form input,
-  .task-form textarea,
-  .task-form select {
-    margin-bottom: 10px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .task-form textarea {
-    height: 100px;
-    resize: vertical;
-  }
-  
-  .task-form button {
-    padding: 10px;
-    background-color: #6c8fb4;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .task-form button:disabled {
-    background-color: #cccccc;
-  }
-  
-  .task-form .error {
-    color: red;
-    margin-top: 10px;
-  }
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.task-form input,
+.task-form textarea,
+.task-form select {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.task-form textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.task-form button {
+  padding: 10px;
+  background-color: #6c8fb4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.task-form button:disabled {
+  background-color: #cccccc;
+}
+
+.task-form .error {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Centering styles for non-admin users */
+.task-form.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

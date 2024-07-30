@@ -16,17 +16,30 @@ const Heading = styled.h1`
   font-size: 32px;
   color: white;
   margin-bottom: 20px;
-  
 `;
 
+const ContentContainer = styled.div`
+  width: 100%;
+  max-width: 900px;
+  padding: 20px;
+`;
+const ContentContainer1 = styled.div`
+  width: 100%;
+  max-width: 900px;
+  padding: 20px;
 
+`;
 
 const CommentPage: React.FC = () => {
   return (
     <PageContainer>
       <Heading>Commentaires</Heading>
+      <ContentContainer1>
         <CommentForm />
+      </ContentContainer1>
+      <ContentContainer>
         <CommentsList />
+      </ContentContainer>
     </PageContainer>
   );
 };

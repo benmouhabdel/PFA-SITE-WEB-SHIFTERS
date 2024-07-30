@@ -23,6 +23,7 @@ export const UserList: React.FC<UserListProps> = ({ users, onUserSelect }) => {
             secondary={
               <>
                 <Typography variant="body2">{user.email}</Typography>
+                <Typography variant="body2">Phone: {user.phone || 'Not provided'}</Typography>
                 <Typography variant="body2">Role: {user.role}</Typography>
               </>
             }

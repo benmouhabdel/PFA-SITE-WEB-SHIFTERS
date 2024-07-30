@@ -8,6 +8,7 @@ const RegisterForm: React.FC = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [phone, setPhone] = useState(''); // Ajout du champ phone
   const [registrationKey, setRegistrationKey] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -19,12 +20,13 @@ const RegisterForm: React.FC = () => {
         name,
         email,
         password,
+        phone, // Ajout du champ phone
         registration_key: registrationKey,
       });
       const { user, access_token } = response.data;
       localStorage.setItem('token', access_token);
       dispatch(setCredentials({ user, token: access_token }));
-      navigate('/dashboard'); // Redirection vers le tableau de bord après l'enregistrement
+      navigate('/profile'); // Redirection vers le tableau de bord après l'enregistrement
     } catch (error) {
       console.error('Registration failed:', error);
     }
@@ -51,6 +53,13 @@ const RegisterForm: React.FC = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Password"
+        required
+      />
+      <input
+        type="text"
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
+        placeholder="Phone" // Ajout du champ phone
         required
       />
       <input

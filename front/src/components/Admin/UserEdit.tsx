@@ -15,6 +15,7 @@ const UserEditForm: React.FC<UserEditFormProps> = ({ userId, onSubmit, onDelete,
   const [user, setUser] = useState<User | null>(null);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -26,6 +27,7 @@ const UserEditForm: React.FC<UserEditFormProps> = ({ userId, onSubmit, onDelete,
         setUser(response.data);
         setName(response.data.name);
         setEmail(response.data.email);
+        setPhone(response.data.phone || '');
       } catch (error) {
         console.error('Failed to fetch user data:', error);
       }
@@ -48,7 +50,7 @@ const UserEditForm: React.FC<UserEditFormProps> = ({ userId, onSubmit, onDelete,
     }
 
     try {
-      await api.put(`/users/${userId}`, { name, email, password });
+      await api.put(`/users/${userId}`, { name, email, phone, password: password || undefined });
       fetchUsers();
       onSubmit();
     } catch (error: any) {
@@ -93,6 +95,14 @@ const UserEditForm: React.FC<UserEditFormProps> = ({ userId, onSubmit, onDelete,
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
+        fullWidth
+        margin="normal"
+      />
+      <TextField
+        label="Phone"
+        type="tel"
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
         fullWidth
         margin="normal"
       />

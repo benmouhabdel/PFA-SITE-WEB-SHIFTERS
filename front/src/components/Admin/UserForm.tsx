@@ -11,6 +11,7 @@ const UserCreateForm: React.FC<UserCreateFormProps> = ({ onSubmit, fetchUsers })
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [phone, setPhone] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -19,19 +20,20 @@ const UserCreateForm: React.FC<UserCreateFormProps> = ({ onSubmit, fetchUsers })
     setError(null);
     setIsLoading(true);
 
-    if (!name || !email || !password) {
+    if (!name || !email || !password || !phone) {
       setError('All fields are required');
       setIsLoading(false);
       return;
     }
 
     try {
-      await api.post('/users', { name, email, password });
+      await api.post('/users', { name, email, password, phone });
       fetchUsers();
       onSubmit();
       setName('');
       setEmail('');
       setPassword('');
+      setPhone('');
     } catch (error: any) {
       console.error('Failed to create user:', error);
       setError(error.response?.data?.error || 'Failed to create user');
@@ -61,6 +63,13 @@ const UserCreateForm: React.FC<UserCreateFormProps> = ({ onSubmit, fetchUsers })
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Password"
+        required
+      />
+      <input
+        type="text"
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
+        placeholder="Phone"
         required
       />
       <button type="submit" disabled={isLoading}>

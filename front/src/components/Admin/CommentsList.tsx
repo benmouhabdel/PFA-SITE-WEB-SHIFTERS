@@ -25,7 +25,10 @@ const CommentCard = styled.div`
   padding: 15px;
   margin-bottom: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative; /* To position delete button */
+  position: relative;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
 `;
 
 const CommentContent = styled.p`
@@ -41,7 +44,7 @@ const CommentUser = styled.small`
 `;
 
 const DeleteButton = styled.button`
-  position: absolute; /* To position delete button inside comment card */
+  position: absolute;
   top: 10px;
   right: 10px;
   background-color: #e74c3c;

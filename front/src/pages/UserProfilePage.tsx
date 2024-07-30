@@ -4,7 +4,7 @@ import { RootState } from '../store/store';
 import { Container, Box, Typography, Paper, styled } from '@mui/material';
 
 const Background = styled(Box)({
-  background: 'linear-gradient(135deg, #e0f7fa 30%, #e1bee7 90%)',
+  background: 'linear-gradient(135deg, #1d3557 70%, #f4a261 90%)',
   minHeight: '100vh',
   padding: '20px',
 });
@@ -22,7 +22,6 @@ const Title = styled(Typography)({
   fontWeight: 600,
   textAlign: 'center',
 });
-
 const UserProfilePage: React.FC = () => {
   const user = useSelector((state: RootState) => state.auth.user);
 
@@ -36,11 +35,11 @@ const UserProfilePage: React.FC = () => {
         <PaperStyled elevation={3}>
           <Title variant="h4">User Profile</Title>
           <Typography variant="h6">Name:</Typography>
-          <Typography variant="body1">{user.name}</Typography>
+          <Typography variant="body1">{user.name || 'Not provided'}</Typography>
           <Typography variant="h6">Email:</Typography>
-          <Typography variant="body1">{user.email}</Typography>
-          <Typography variant="h6">Role:</Typography>
-          <Typography variant="body1">{user.role}</Typography>
+          <Typography variant="body1">{user.email || 'Not provided'}</Typography>
+          <Typography variant="h6">Phone:</Typography>
+          <Typography variant="body1">{user.phone || 'Not provided'}</Typography>
         </PaperStyled>
       </Container>
     </Background>

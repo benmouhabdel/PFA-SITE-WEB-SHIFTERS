@@ -4,22 +4,22 @@ import api from '../../services/api';
 import { RootState } from '../../store/store';
 import styled from 'styled-components';
 
-
-
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  width:200%;
-  
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 `;
+
 const Textarea = styled.textarea`
-  padding: 25px; /* Adjust padding for better usability */
+  padding: 25px;
   font-size: 16px;
-  border: 2px solid #ddd; /* Increase the border width */
+  border: 2px solid #ddd;
   border-radius: 4px;
   resize: vertical;
-  min-height: 200px; /* Increase minimum height for better usability */
-  width: 100%; /* Ensure the textarea uses the full width of the container */
+  min-height: 200px;
+  width: 100%;
   margin-bottom: 15px;
   transition: border-color 0.3s ease;
 
@@ -51,17 +51,15 @@ const ErrorMessage = styled.p`
 
 const AdminMessage = styled.p`
   font-size: 20px;
-  color: #1d3557;
-  font-style: italic; /* Italicize the text */
-  font-weight: bold; /* Make it bold for emphasis */
-  text-align: center; /* Center-align the text */
-  margin: 20px 0; /* Add some margin for spacing */
+  color: #f4a261;
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
 `;
 
 const CommentForm: React.FC = () => {
   const [content, setContent] = useState('');
   const [error, setError] = useState<string | null>(null);
-
   const user = useSelector((state: RootState) => state.auth.user);
   const isAdmin = user?.role === 'admin';
 
@@ -83,18 +81,16 @@ const CommentForm: React.FC = () => {
   }
 
   return (
-    
-      <StyledForm onSubmit={handleSubmit}>
-        <Textarea
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          placeholder="Write your comment"
-          required
-        />
-        <SubmitButton type="submit">Post Comment</SubmitButton>
-        {error && <ErrorMessage>{error}</ErrorMessage>}
-      </StyledForm>
-
+    <StyledForm onSubmit={handleSubmit}>
+      <Textarea
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
+        placeholder="Write your comment"
+        required
+      />
+      <SubmitButton type="submit">Post Comment</SubmitButton>
+      {error && <ErrorMessage>{error}</ErrorMessage>}
+    </StyledForm>
   );
 };
 

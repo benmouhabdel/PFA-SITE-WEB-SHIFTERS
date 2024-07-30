@@ -69,19 +69,14 @@ const TaskForm: React.FC<TaskFormProps> = ({ onTaskCreated }) => {
     }
   };
 
-  if (!isAdmin) {
-    return (
-      <div className="task-form">
-        <p className="error">Seuls les administrateurs ont la permission d'accéder à cette fonctionnalité.</p>
-      </div>
-    );
-  }
-
   // Filtrer les utilisateurs non administrateurs
   const nonAdminUsers = users.filter(user => user.role !== 'admin');
 
+  // Apply the centered class if the user is not an admin
+  const formClassName = `task-form ${!isAdmin ? 'centered' : ''}`;
+
   return (
-    <form onSubmit={handleSubmit} className="task-form">
+    <form onSubmit={handleSubmit} className={formClassName}>
       <input
         type="text"
         value={title}
@@ -102,8 +97,8 @@ const TaskForm: React.FC<TaskFormProps> = ({ onTaskCreated }) => {
       >
         <option value="">Sélectionner le statut</option>
         <option value="urgent">Urgent</option>
-        <option value="a faire prochainement">a faire prochainement</option>
-        <option value="au fil du temps">au fil du temps</option>
+        <option value="a faire prochainement">A faire prochainement</option>
+        <option value="au fil du temps">Au fil du temps</option>
       </select>
       <select
         value={userId}
