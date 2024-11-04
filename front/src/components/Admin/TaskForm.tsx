@@ -100,11 +100,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onTaskCreated }) => {
         <option value="a faire prochainement">A faire prochainement</option>
         <option value="au fil du temps">Au fil du temps</option>
       </select>
-      <select
-        value={userId}
-        onChange={(e) => setUserId(Number(e.target.value))}
-        required
-      >
+      <select value={userId} onChange={(e) => setUserId(Number(e.target.value))} required>
         <option value="">Sélectionner l'utilisateur</option>
         {nonAdminUsers.map(user => (
           <option key={user.id} value={user.id}>

@@ -1,34 +1,21 @@
-import React from 'react';
-import { Container, Box, Typography, Paper, styled } from '@mui/material';
+import React, { useState } from 'react';
+import { Container, Box, Typography, styled, Drawer } from '@mui/material';
+import { useLocation } from 'react-router-dom';
 import RegisterForm from '../components/Auth/RegisterForm';
+import backgroundImage from './shifters.jpg'; // Ajustez le chemin si nécessaire
 
 const Background = styled(Box)({
-  background: 'linear-gradient(135deg, #1d3557 70%, #f4a261 90%)',
-  minHeight: 'calc(100vh - 50px)', // Ajustez cette valeur pour la hauteur du footer
+  backgroundImage: `url(${backgroundImage})`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  minHeight: '100vh',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  flexDirection: 'column',
-});
-
-const PaperStyled = styled(Paper)({
-  padding: '30px',
-  maxWidth: '600px',
-  width: '100%',
-  borderRadius: '8px',
-  boxShadow: '0 4px 9px rgba(0, 0, 0, 0.2)',
-  background: 'linear-gradient(135deg, #FF8E53 70%, blue 90%)',
-});
-
-const Title = styled(Typography)({
-  marginBottom: '30px',
-  fontWeight: 600,
-  textAlign: 'center',
-  color: 'black',
 });
 
 const Footer = styled(Box)({
-  height: '50px', // Ajustez cette valeur pour la hauteur du footer
+  height: '50px',
   width: '100%',
   display: 'flex',
   alignItems: 'center',
@@ -40,16 +27,29 @@ const Footer = styled(Box)({
 });
 
 const RegisterPage: React.FC = () => {
+  const location = useLocation();
+  const [drawerOpen, setDrawerOpen] = useState(location.pathname === '/register');
+
+  const handleDrawerClose = () => {
+    setDrawerOpen(false);
+  };
+
   return (
     <>
-      <Background>
-        <Container maxWidth="sm">
-          <PaperStyled elevation={3}>
-            <Title variant="h4">Register</Title>
-            <RegisterForm />
-          </PaperStyled>
-        </Container>
-      </Background>
+      <Background />
+      <Drawer
+        anchor="right"
+        open={drawerOpen}
+        onClose={handleDrawerClose}
+        ModalProps={{
+          keepMounted: true,
+        }}
+        PaperProps={{
+          sx: { width: '50%' },
+        }}
+      >
+        <RegisterForm onClose={handleDrawerClose} />
+      </Drawer>
       <Footer>
         <Container maxWidth="lg" style={{ textAlign: 'center' }}>
           <Typography variant="body2" color="yellow">

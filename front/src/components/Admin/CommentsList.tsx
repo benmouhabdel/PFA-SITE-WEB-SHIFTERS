@@ -44,9 +44,6 @@ const CommentUser = styled.small`
 `;
 
 const DeleteButton = styled.button`
-  position: absolute;
-  top: 10px;
-  right: 10px;
   background-color: #e74c3c;
   color: #fff;
   border: none;
@@ -54,6 +51,7 @@ const DeleteButton = styled.button`
   padding: 5px 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 10px; /* Add margin-top to separate it from the content */
 
   &:hover {
     background-color: #c0392b;

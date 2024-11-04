@@ -22,7 +22,7 @@ class RegisterRequest extends FormRequest
             'phone' => 'nullable|string|max:12',
         ];
 
-        // Vérifiez si la route actuelle est pour l'enregistrement d'un admin
+        // Check if the current route is not for admin registration
         if ($this->route()->getName() !== 'register.admin') {
             $rules['registration_key'] = 'required|string|exists:registration_keys,key';
         }

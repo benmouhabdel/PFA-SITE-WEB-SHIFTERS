@@ -19,7 +19,7 @@ class RegisterController extends Controller
             'password' => bcrypt($request->password),
             'role' => 'user',
             'registration_key' => $request->registration_key ?? $this->defaultRegistrationKey,
-            'phone' => $request->phone, // Ajout du champ 'phone'
+            'phone' => $request->phone,
         ]);
 
         $token = $user->createToken('auth_token')->plainTextToken;
@@ -37,7 +37,7 @@ class RegisterController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'role' => 'admin',
-            'phone' => $request->phone, // Ajout du champ 'phone'
+            'phone' => $request->phone,
         ]);
 
         $token = $admin->createToken('auth_token')->plainTextToken;

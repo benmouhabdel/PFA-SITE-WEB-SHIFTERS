@@ -13,12 +13,13 @@ class Helper
      * @param array $data
      * @return JsonResponse
      */
-    public static function sendError(string $message, array $data = []): JsonResponse
-    {
-        return response()->json([
-            'success' => false,
-            'message' => $message,
-            'data' => $data
-        ], 422);
-    }
+    public static function sendError($error, $errors = [])
+{
+    return response()->json([
+        'success' => false,
+        'message' => $error,
+        'errors' => $errors
+    ], 400);
+}
+
 }

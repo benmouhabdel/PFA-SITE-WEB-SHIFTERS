@@ -29,13 +29,13 @@ const HeroTitle = styled(Typography)({
   fontWeight: 700,
   fontSize: '3rem',
   marginBottom: '20px',
-  color:'black'
+  color: 'black'
 });
 
 const HeroSubtitle = styled(Typography)({
   fontSize: '1.5rem',
   marginBottom: '40px',
-  color:'black'
+  color: 'black'
 });
 
 const Section = styled(Box)({
@@ -47,7 +47,7 @@ const SectionTitle = styled(Typography)({
   marginBottom: '20px',
   fontSize: '2rem',
   textAlign: 'center',
-  color:'white'
+  color: 'white'
 });
 
 const Content = styled(Typography)({
@@ -56,9 +56,8 @@ const Content = styled(Typography)({
   lineHeight: 1.8,
   margin: '0 auto',
   maxWidth: '800px',
-  color:'#003049'
+  color: '#003049'
 });
-
 
 const Content1 = styled(Typography)({
   textAlign: 'center',
@@ -66,9 +65,8 @@ const Content1 = styled(Typography)({
   lineHeight: 1.8,
   margin: '0 auto',
   maxWidth: '800px',
-  color:'#003049'
+  color: '#003049'
 });
-
 
 const Content2 = styled(Typography)({
   textAlign: 'center',
@@ -76,7 +74,7 @@ const Content2 = styled(Typography)({
   lineHeight: 1.8,
   margin: '0 auto',
   maxWidth: '800px',
-  color:'yellow'
+  color: 'yellow'
 });
 
 const StyledGridItem = styled(Grid)({
@@ -91,6 +89,42 @@ const ImageContainer = styled('div')({
     borderRadius: '8px',
   },
 });
+
+// Nouveau style pour ajouter l'effet lumineux
+const StyledPaper = styled(Paper)({
+  padding: '20px',
+  textAlign: 'center',
+  backgroundColor: '#f4a261',
+  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Ombre par défaut
+  '&:hover': {
+    transform: 'scale(1.05)',
+    boxShadow: '0px 0px 90px 10px rgba(255, 255, 255, 0.8)', // Effet lumineux
+  },
+});
+const StyledPaper2 = styled(Paper)({
+  padding: '20px',
+  textAlign: 'center',
+  backgroundColor: '#f4a261',
+  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Ombre par défaut
+  '&:hover': {
+    transform: 'scale(1.05)',
+    boxShadow: '0px 0px 90px 10px rgba(255, 255, 255, 0.8)', // Effet lumineux blanc
+  },
+});
+const StyledPaper1 = styled(Paper)({
+  padding: '20px',
+  textAlign: 'center',
+  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Ombre par défaut
+  '&:hover': {
+    transform: 'scale(1.05)',
+    boxShadow: '0px 0px 90px 10px rgba(255, 255, 255, 0.8)', // Effet lumineux blanc
+  },
+});
+
+
 
 const Footer = styled(Box)({
   height: '50px',
@@ -118,47 +152,56 @@ const HomePage: React.FC = () => {
       <Background>
         <Container>
         <Section>
-            <SectionTitle variant="h4">Notre École</SectionTitle>
+          <SectionTitle variant="h4">Notre École</SectionTitle>
             <Grid container spacing={4} justifyContent="center" alignItems="center">
-              <StyledGridItem item xs={12} md={6}>
-                <Content1 variant="body1">
-                Découvrez notre école et ce qui nous distingue, Nous offrons une formation de qualité avec des programmes variés et adaptés aux besoins du marché.
-                </Content1>
-              </StyledGridItem>
-              <StyledGridItem item xs={12} md={6}>
-                <ImageContainer>
-                  <img src={firstImage} alt="Notre École" />
-                </ImageContainer>
-              </StyledGridItem>
+            <StyledGridItem item xs={12} md={6}>
+            <Content1 variant="body1">
+            Découvrez notre école et ce qui nous distingue. Nous offrons une formation de qualité avec des programmes variés et adaptés aux besoins du marché.
+            </Content1>
+            </StyledGridItem>
+            <StyledGridItem item xs={12} md={6}>
+            <StyledPaper1>
+            <ImageContainer>
+            < img src={firstImage} alt="Notre École" />
+            </ImageContainer>
+            </StyledPaper1>
+            </StyledGridItem>
             </Grid>
           </Section>
+
 
           <Section>
             <SectionTitle variant="h4">Nos Aventures</SectionTitle>
             <Grid container spacing={4}>
               <StyledGridItem item xs={12} md={4}>
-                <Paper style={{ padding: '20px', textAlign: 'center', backgroundColor: '#fff' }}>
+                <StyledPaper2>
+                <Paper style={{ padding: '20px', textAlign: 'center', backgroundColor: '#003049', }}>
                   <ImageContainer>
                     <img src={secondImage} alt="Événement 1" />
                   </ImageContainer>
                   <Typography variant="h6" style={{ marginTop: '20px' }}></Typography>
                 </Paper>
+                </StyledPaper2>
               </StyledGridItem>
               <StyledGridItem item xs={12} md={4}>
-                <Paper style={{ padding: '20px', textAlign: 'center', backgroundColor: '#fff' }}>
+              <StyledPaper2>
+                <Paper style={{ padding: '20px', textAlign: 'center', backgroundColor: '#003049' }}>
                   <ImageContainer>
                     <img src={thirdImage} alt="Événement 2" />
                   </ImageContainer>
                   <Typography variant="h6" style={{ marginTop: '20px' }}></Typography>
                 </Paper>
+                </StyledPaper2>
               </StyledGridItem>
               <StyledGridItem item xs={12} md={4}>
-                <Paper style={{ padding: '20px', textAlign: 'center', backgroundColor: '#fff' }}>
+              <StyledPaper2>
+                <Paper style={{ padding: '20px', textAlign: 'center', backgroundColor: '#003049' }}>
                   <ImageContainer>
                     <img src={fourthImage} alt="Événement 3" />
                   </ImageContainer>
                   <Typography variant="h6" style={{ marginTop: '20px' }}></Typography>
                 </Paper>
+                </StyledPaper2>
               </StyledGridItem>
             </Grid>
           </Section>
@@ -167,40 +210,41 @@ const HomePage: React.FC = () => {
             <SectionTitle variant="h4">Nos Groupes</SectionTitle>
             <Grid container spacing={4}>
               <StyledGridItem item xs={12} md={4}>
-                <Paper style={{ padding: '20px', textAlign: 'center', backgroundColor: '#f4a261 ' }}>
+                <StyledPaper>
                   <ImageContainer>
-                    <img src={aImage} alt="Événement 1" />
+                    <img src={aImage} alt="Social&&Culturel" />
                   </ImageContainer>
                   <Typography variant="h6" style={{ marginTop: '20px' }}>Social&&Culturel</Typography>
                   <Content variant="body2">
                     Participez à nos événements et découvrez nos cultures.
                   </Content>
-                </Paper>
+                </StyledPaper>
               </StyledGridItem>
               <StyledGridItem item xs={12} md={4}>
-                <Paper style={{ padding: '20px', textAlign: 'center', backgroundColor: '#f4a261 ' }}>
+                <StyledPaper>
                   <ImageContainer>
-                    <img src={bImage} alt="Événement 2" />
+                    <img src={bImage} alt="Entreprenariat" />
                   </ImageContainer>
                   <Typography variant="h6" style={{ marginTop: '20px' }}>Entreprenariat</Typography>
                   <Content variant="body2">
                     Rejoignez-nous pour des séminaires et des ateliers inspirants.
                   </Content>
-                </Paper>
+                </StyledPaper>
               </StyledGridItem>
               <StyledGridItem item xs={12} md={4}>
-                <Paper style={{ padding: '20px', textAlign: 'center', backgroundColor: '#f4a261 ' }}>
+                <StyledPaper>
                   <ImageContainer>
-                    <img src={cImage} alt="Événement 3" />
+                    <img src={cImage} alt="Formation" />
                   </ImageContainer>
                   <Typography variant="h6" style={{ marginTop: '20px' }}>Formation</Typography>
                   <Content variant="body2">
                     Assistez à nos conférences et développez vos compétences.
                   </Content>
-                </Paper>
+                </StyledPaper>
               </StyledGridItem>
             </Grid>
           </Section>
+
           <Section>
             <SectionTitle variant="h4">Contact</SectionTitle>
             <Content2 variant="body1">
@@ -218,6 +262,7 @@ const HomePage: React.FC = () => {
           </Section>
         </Container>
       </Background>
+
       <Footer>
         <Container maxWidth="lg" style={{ textAlign: 'center' }}>
           <Typography variant="body2" color="yellow">
